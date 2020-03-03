@@ -4,8 +4,9 @@ $ACCESS_TOKEN = 'FE+CLdBTuNluI/QANL93WgHGdOZca4365tHws29scdRnURdNOan0nbr0jlCMNHp
 $CHANNEL_SECRET ='5d9bf6b36f97338fbf2b5a437c3c304b';
 
 $POST_HEADER = array('Content-Type: applition/json','Authorization: Bearer'.$ACCESS_TOKEN);
-$request = file_put_contents('log.txt', file_get_contents('php://input') . PHP_EOL, FILE_APPEND);
+$request = file_get_contents('php://input');
 $request_array = json_decode($request,true);
+file_put_contents('log.txt', file_get_contents('php://input') . PHP_EOL, FILE_APPEND);
 
 
 if ( sizeof($request_array['events']) > 0 ) {
